@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="James Kettle - Strategic Partnerships & User Research Professional. Columbia and Sciences Po graduate specializing in business development and cross-functional collaboration.">
+    <title>{{ if .Title }}{{ .Title }} - {{ end }}James Kettle</title>
+
+    <!-- Critical CSS inline -->
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Garamond',serif;
+            font-size: 1em;
+        }
+        header {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgb(0, 0, 0);
+            font-size: 1em;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            display: inline;
+            margin: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        main {
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid rgb(0, 0, 0);
+        }
+    </style>
+    
+    <link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                {{ $currentPage := . }}
+                {{ range site.Menus.main }}
+                    <li>
+                        <a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}style="font-weight: bold;"{{ end }}>
+                            {{ .Name }}
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; {{ now.Format "2006" }} <a href="/" class="footer-link">James Kettle</a></p>
+    </footer>
+
+    <!-- Non-critical CSS -->
+    <style>
+        h1, h2, h3 {
+            color: rgb(0, 0, 0);
+        }
+        article {
+            margin-bottom: 0px;
+            padding-bottom: 5px;
+        }
+        time {
+            font-size: 0.9em;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            font-size: 2em;
+            margin: 0 0 1rem 0;
+            padding: 0;
+        }
+        .footer-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted #000;
+        }
+        .footer-link:hover {
+            border-bottom: 1px solid #000;
+        }
+    </style>
+</body>
+</html>

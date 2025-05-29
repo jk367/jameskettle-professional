@@ -1,0 +1,86 @@
+{{ define "main" }}
+<article class="photo-series">
+    <h1>{{ .Title }}</h1>
+    
+   
+    
+    <!-- Back navigation -->
+    <div class="back-navigation">
+        {{ if eq .Section "portraits" }}
+            <a href="/portraits/" class="back-button">← Back to Portraits</a>
+        {{ else if eq .Section "parties" }}
+            <a href="/parties/" class="back-button">← Back to Parties</a>
+        {{ else if eq .Section "places" }}
+            <a href="/places/" class="back-button">← Back to Places</a>
+        {{ end }}
+    </div>
+    
+    <div class="series-description">
+        {{ .Content }}
+    </div>
+
+    {{ if .Params.series_images }}
+    <div class="series-photos">
+        {{ range $index, $image := .Params.series_images }}
+        <div class="series-photo">
+            <img src="{{ $image }}" 
+                 alt="{{ $.Title }} - Photo {{ add $index 1 }}"
+                 {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }}>
+        </div>
+        {{ end }}
+    </div>
+
+   
+    {{ else }}
+    <p>Photos coming soon...</p>
+    {{ end }}
+    
+</article>
+
+<style>
+  
+  .photo-series time {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  
+  .back-button {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: inline-block;
+    transition: text-decoration 0.3s ease;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+  
+  .series-description {
+    margin-bottom: 2rem;
+  }
+  
+  .series-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .series-photo img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .series-photos {
+      gap: 1rem;
+    }
+  }
+</style>
+{{ end }}

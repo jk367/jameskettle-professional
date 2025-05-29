@@ -1,0 +1,80 @@
+{{ define "main" }}
+<h1>James Kettle</h1>
+<p>Strategic partnerships and user research professional with expertise in business development, cross-functional collaboration, and product strategy.</p>
+
+<div class="featured-section">
+    <h2>Recent Work</h2>
+    <div class="experience-list">
+        <div class="experience-item">
+            <h3>Strategic Partnerships Lead</h3>
+            <span class="company">CloudCap • 2023-2024</span>
+            <p>Led partnership initiatives and user research projects to drive business growth and product development.</p>
+        </div>
+        <div class="experience-item">
+            <h3>Business Development Associate</h3>
+            <span class="company">Upfront • 2022-2023</span>
+            <p>Developed strategic relationships and conducted market analysis to identify new opportunities.</p>
+        </div>
+    </div>
+</div>
+
+<div class="featured-section">
+    <h2>Recent Writing</h2>
+    {{ $writingPages := where .Site.RegularPages "Section" "writing" }}
+    {{ range first 3 $writingPages }}
+        <article class="article-item">
+            <h3 class="article-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <span class="article-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </article>
+    {{ else }}
+        <p>Professional insights coming soon.</p>
+    {{ end }}
+</div>
+
+<style>
+    .featured-section {
+        margin-bottom: 2rem;
+    }
+    .experience-list {
+        margin-top: 1rem;
+    }
+    .experience-item {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+    .experience-item:last-child {
+        border-bottom: none;
+    }
+    .experience-item h3 {
+        margin-bottom: 0.2rem;
+        font-size: 1.2em;
+    }
+    .company {
+        font-size: 0.9em;
+        color: #666;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    .article-item {
+        margin-bottom: 0.5rem;
+    }
+    .article-title {
+        display: inline;
+        margin-right: 0.5rem;
+        font-size: 1.1em;
+    }
+    .article-title a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .article-title a:hover {
+        text-decoration: underline;
+    }
+    .article-date {
+        display: inline;
+        font-size: 0.9em;
+        color: #666;
+    }
+</style>
+{{ end }}

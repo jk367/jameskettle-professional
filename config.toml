@@ -1,0 +1,37 @@
+baseURL = "https://jameskettle.me/"
+languageCode = "en-us"
+title = "James Kettle - Strategic Partnerships & User Research Professional"
+theme = ""
+
+[params]
+  description = "Strategic partnerships and user research professional with experience at CloudCap and Upfront"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    name = "Resume"
+    url = "/resume/"
+    weight = 3
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 4
+  [[menu.main]]
+    name = "Writing"
+    url = "/writing/"
+    weight = 5
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 6
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
