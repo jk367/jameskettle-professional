@@ -1,7 +1,6 @@
 baseURL = "https://jameskettle.me/"
 languageCode = "en-us"
 title = "James Kettle - Strategic Partnerships & User Research Professional"
-theme = ""
 
 [params]
   description = "Strategic partnerships and user research professional with experience at CloudCap and Upfront"
